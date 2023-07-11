@@ -2,7 +2,7 @@
 $data = $_POST["data"];
 
 // HTML 파일에 데이터 저장
-$file = fopen("data.html", "w");
+$file = fopen("index.html", "w");
 
 $htmlContent = "<table>\n";
 $htmlContent .= "<tr>\n";
