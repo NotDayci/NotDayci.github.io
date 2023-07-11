@@ -25,12 +25,16 @@ for (let i = 0; i < result.length; i++) {
 
 let dataContainer = document.querySelector(".data");
 
-data.forEach((entry) => {
-  let row = document.createElement("tr");
-  entry.forEach((item) => {
-    let cell = document.createElement("td");
-    cell.textContent = item;
-    row.appendChild(cell);
-  });
-  dataContainer.appendChild(row);
+let formData = new FormData();
+formData.append("data", JSON.stringify(data));
+
+fetch("save.php", {
+  method: "POST",
+  body: formData
+})
+.then(response => {
+  console.log("Data sent to server");
+})
+.catch(error => {
+  console.error("Error:", error);
 });
