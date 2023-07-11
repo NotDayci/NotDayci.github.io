@@ -23,8 +23,14 @@ for (let i = 0; i < result.length; i++) {
   });
 }
 
-let htmlContent = data.join("<br>");
+let dataContainer = document.querySelector(".data");
 
-document.open();
-document.write(htmlContent);
-document.close();
+data.forEach((entry) => {
+  let row = document.createElement("tr");
+  entry.forEach((item) => {
+    let cell = document.createElement("td");
+    cell.textContent = item;
+    row.appendChild(cell);
+  });
+  dataContainer.appendChild(row);
+});
